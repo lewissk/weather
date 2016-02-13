@@ -91,11 +91,11 @@ class WeatherSpec extends FlatSpec {
   }
 
   "whatKindOfTriangleIsThis" should "return Isosceles when there are at least 2 equal sides" in {
-    assert(weather.whatKindOfTriangleIsThis(1,1,3).get == TriangleType.Isosceles)
+    assert(weather.whatKindOfTriangleIsThis(9,9,14).get == TriangleType.Isosceles)
   }
 
   "whatKindOfTriangleIsThis" should "return Scalene when no sides are equal" in {
-    assert(weather.whatKindOfTriangleIsThis(1,2,3).get == TriangleType.Scalene)
+    assert(weather.whatKindOfTriangleIsThis(10,6,14).get == TriangleType.Scalene)
   }
 
 }

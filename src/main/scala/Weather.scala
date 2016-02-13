@@ -1,10 +1,15 @@
 import scala.collection.mutable
 
 object TriangleType {
+
   sealed trait EnumVal
+
   case object Equilateral extends EnumVal
+
   case object Isosceles extends EnumVal
+
   case object Scalene extends EnumVal
+
   val types = Seq(Equilateral, Isosceles, Scalene)
 }
 
@@ -20,7 +25,7 @@ class Weather {
   /**
     * function that determines if all elements of one list are in another
     *
-    * @param firstList values to check
+    * @param firstList  values to check
     * @param secondList values to check against
     * @tparam A Type of the first list
     * @tparam B Type of the second list
@@ -40,7 +45,7 @@ class Weather {
     * The list can only be walked once (reverse, length, or size of this list cannot be used).
     *
     * @param linkedList a linked list used to find the last digit
-    * @param n the position to return from the end of the list
+    * @param n          the position to return from the end of the list
     * @tparam A the type of the value in the linked list
     * @return the nth element from the end of the list
     */
@@ -87,18 +92,19 @@ class Weather {
     * @param c Side c
     * @return Equilateral if all sides are the same, Isosceles if at least 2 sides are the same, and Scalene if no sides are the same
     */
-  def whatKindOfTriangleIsThis(a: Int, b: Int, c: Int): Option[TriangleType.EnumVal] = {
+  def whatKindOfTriangleIsThis(a: Float, b: Float, c: Float): Option[TriangleType.EnumVal] = {
 
-    if(a == 0 || b == 0 || c == 0) {
-      None
-    } else if (a == b && a == c) {
-      Some(TriangleType.Equilateral)
-    } else if (a == b || b == c || a == c) {
-      Some(TriangleType.Isosceles)
+    if (a + b > c && a + c > b && b + c > a) {
+      if (a == b && a == c) {
+        Some(TriangleType.Equilateral)
+      } else if (a == b || b == c || a == c) {
+        Some(TriangleType.Isosceles)
+      } else {
+        Some(TriangleType.Scalene)
+      }
     } else {
-      Some(TriangleType.Scalene)
+      None
     }
-
   }
 
 }
